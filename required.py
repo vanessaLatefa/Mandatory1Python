@@ -3,19 +3,23 @@ import sys
 from urllib.request import urlopen
 
 
-clone = []
+
+
+clone_urls = []
+lesson_number = ['Lesson 1', 'Lesson 2', 'Lesson 3', 'Lesson 4', 'Lesson 5', 'Lesson 6', 'Lesson 7', 'Lesson 8', 'Lesson 9']
+
 find_string = '"clone_url"'
-
-
-
 with open('new_api.txt') as file:
     for lineNumber, line in enumerate(file,1):
         if find_string in line :
-            print('Found it in line : ',lineNumber)
             slice(line)
-            clone.append(line[12:-2])
+            clone_urls.append(line[13:-2])
 
-print(clone)          
+clone_dictionary = dict(zip(lesson_number, clone_urls))
+print(clone_dictionary)    
+       
+
+sys.exit()
 
 
 def slice(val,start=1,stop=None):
